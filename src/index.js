@@ -13,4 +13,11 @@ function untilIsGreater(x, y) {
   return isGreaterThan(n, y);
 }
 
-module.exports = { isGreaterThan, untilIsGreater };
+function isGreaterThanY(x, y) {
+  if (x > y) {
+    return true;
+  }
+  return false;
+}
+
+module.exports = { isGreaterThan, isGreaterThanY, untilIsGreater };

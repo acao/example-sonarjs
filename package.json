@@ -2,14 +2,14 @@
   "name": "example-sonarqube",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "lint": "eslint . -f json -o eslint-report.json .",
-    "test": "tap *.test.js --coverage",
+    "lint": "eslint .",
+    "lint:sonar": "eslint -f json -o eslint-report.json .",
+    "test": "tap test/**/*.test.js --coverage",
     "posttest": "tap --coverage-report=text-lcov > coverage/lcov.info",
-    "branch": "git branch | grep * | cut -d ' ' -f2",
-    "setenv": "env $(cat .env | xargs)",
-    "sonarqube": "env $(cat .env | xargs) sonar-scanner -Dsonar.host.url=http://10.134.116.99:9000 -Dsonar.branch.name=master"
+    "branch": "git branch",
+    "sonarqube": "yarn lint:sonar & yarn test && ./sonar.sh"
   },
   "author": "",
   "license": "ISC",

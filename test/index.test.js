@@ -1,5 +1,5 @@
 const tap = require('tap');
-const { isGreaterThan, untilIsGreater } = require('./');
+const { isGreaterThan, untilIsGreater } = require('../src');
 
 tap.test('is greater than func, returns true', childTest => {
   tap.equal(isGreaterThan(3, 2), true);
